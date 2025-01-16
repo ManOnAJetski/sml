@@ -182,6 +182,7 @@ struct X {}; // terminate state
 #endif
 
 #pragma once
+#include <climits>
 
 namespace sml::inline v3_0_0 {
 using size_t = decltype(sizeof(int));
@@ -268,7 +269,7 @@ struct static_vector {
 };
 
 template<class... Ts>
-  requires (__is_empty(Ts) and ...) and (sizeof...(Ts) < (1u << __CHAR_BIT__))
+  requires (__is_empty(Ts) and ...) and (sizeof...(Ts) < (1u << CHAR_BIT))
 struct variant {
   template<class T> static constexpr auto id = [] {
     const bool match[]{type_traits::is_same_v<Ts, T>...};
