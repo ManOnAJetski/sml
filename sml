@@ -182,7 +182,6 @@ struct X {}; // terminate state
 #endif
 
 #pragma once
-#pragma GCC system_header
 
 namespace sml::inline v3_0_0 {
 using size_t = decltype(sizeof(int));
